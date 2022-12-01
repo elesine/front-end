@@ -1,1 +1,24 @@
-<p>listado-peliculas works!</p>
+<!-- Proyección de contenido -->
+
+<app-listado-generico [listado]="peliculas">
+  <ng-container vacio>
+    <div><b> No hay peliculas disponible en este momento</b></div>
+  </ng-container>
+  <br>
+  <ng-container contenido>
+    <div
+      *ngFor="let pelicula of peliculas; let index = index"
+      class="pelicula-contenedor"
+    >
+      <div>Película {{ index + 1 }}: {{ pelicula.titulo }}</div>
+      <div>
+        Fecha
+        {{ pelicula.fechaLanzamiento | date : "dd-MMMM-yyyy" | uppercase }}
+      </div>
+      <div>Precio {{ pelicula.precio | currency }}</div>
+      <button style="margin-left: 1rem" (click)="remover(index)">
+        Eliminar
+      </button>
+    </div>
+  </ng-container>
+</app-listado-generico>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-listado-peliculas',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./listado-peliculas.component.css']
 })
 export class ListadoPeliculasComponent {
+  title = 'Listado de películas';
 
+  @Input()
+  peliculas: Array<any>;
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+
+  remover(index: number): void {
+    this.peliculas.splice(index,1);
+  }
 }

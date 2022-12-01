@@ -1,24 +1,22 @@
-<p>Hello Devs</p>
-<div *ngIf="!peliculas">
-  <img src="https://thumbs.gfycat.com/DefinitiveJaggedDalmatian-size_restricted.gif"/>
-</div>
-<!-- <div *ngIf="peliculas?.length === 0"> -->
-<div *ngIf="peliculas?.length === 0">
-  <p>No hay películas para mostrar</p>
-</div>
+<!-- <p>Hello Devs</p> -->
 
-<div *ngIf="peliculas && peliculas?.length !== 0">
-  <div  *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
-    <div>
-      Película {{index}}: {{pelicula.titulo}}
-    </div>
-    <div>
-      Fecha {{pelicula.fechaLanzamiento | date: "dd-MMMM-yyyy" | uppercase}}
-    </div>
-    <div>
-      Precio {{pelicula.precio | currency}}
-    </div>
-  </div>
+<!-- Variable de referencia de plantilla  -->
+
+<!-- <input type="file" style="display: none" #cargador />
+<button (click)="cargador.click()">Cargar archivo</button> -->
+
+<!-- Material -->
+<app-menu></app-menu>
+
+<app-rating [maximoRating]="6"></app-rating>
+
+<div class="contenedor">
+  <!-- Uso de componente  -->
+  <h2>En cines</h2>
+  <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
+
+  <h2>Futuros Estrenos</h2>
+  <app-listado-peliculas
+    [peliculas]="peliculasProximosEstrenos"
+  ></app-listado-peliculas>
 </div>
-
-
