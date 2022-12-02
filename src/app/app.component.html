@@ -10,19 +10,9 @@
 <!-- <app-menu></app-menu>
 <app-rating (rated)="manejarRated($event)" ></app-rating> -->
 
-<!-- Uso de componente -->
-<!-- <div class="contenedor">
-  <h2>En cines</h2>
-  <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
-
-  <h2>Futuros Estrenos</h2>
-  <app-listado-peliculas
-    [peliculas]="peliculasProximosEstrenos"
-  ></app-listado-peliculas>
-</div> -->
 
 <!-- lifecycle hooks -->
-
+<!--
 <app-menu></app-menu>
 <div class="contenedor">
 
@@ -38,4 +28,10 @@
   <app-ciclo-de-vida *ngIf="ocultar" [title]="title"></app-ciclo-de-vida>
 
 </div>
+ -->
 
+<app-menu></app-menu>
+
+<div class="contenedor">
+  <router-outlet></router-outlet>
+</div>
