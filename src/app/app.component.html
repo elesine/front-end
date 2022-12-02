@@ -5,13 +5,13 @@
 <!-- <input type="file" style="display: none" #cargador />
 <button (click)="cargador.click()">Cargar archivo</button> -->
 
+
 <!-- Material -->
-<app-menu></app-menu>
+<!-- <app-menu></app-menu>
+<app-rating (rated)="manejarRated($event)" ></app-rating> -->
 
-<app-rating (rated)="manejarRated($event)" ></app-rating>
-
-<div class="contenedor">
-  <!-- Uso de componente -->
+<!-- Uso de componente -->
+<!-- <div class="contenedor">
   <h2>En cines</h2>
   <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
@@ -19,4 +19,23 @@
   <app-listado-peliculas
     [peliculas]="peliculasProximosEstrenos"
   ></app-listado-peliculas>
+</div> -->
+
+<!-- lifecycle hooks -->
+
+<app-menu></app-menu>
+<div class="contenedor">
+
+  <div>
+    <input type="text" (input)="title = $event.target.value"/>
+  </div>
+
+  <div>
+    <input type="checkbox" checked (change)="ocultar = !ocultar">
+    Ocultar
+  </div>
+
+  <app-ciclo-de-vida *ngIf="ocultar" [title]="title"></app-ciclo-de-vida>
+
 </div>
+

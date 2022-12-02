@@ -8,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'front-end';
   peliculasEnCines: Array<any>;
-
   peliculasProximosEstrenos: Array<any>;
-
+  ocultar: boolean;
 
   constructor() {
+    this.ocultar = false;
+
     this.peliculasEnCines =[{
       titulo: 'Harry Potter',
       fechaLanzamiento: new Date(),
       precio: 2000
+
     },{
       titulo: 'La momia',
       fechaLanzamiento: new Date('2018-11-14'),
