@@ -66,6 +66,10 @@ export class AppComponent implements OnInit{
       }];
     },3000);
   }
+
+  manejarRated(voto: number): void{
+    alert(voto);
+  }
 }
 
 

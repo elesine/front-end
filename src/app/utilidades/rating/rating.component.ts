@@ -1,24 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { outputAst } from '@angular/compiler';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.css']
+  styleUrls: ['./rating.component.css'],
 })
-export class RatingComponent implements OnInit{
-
+export class RatingComponent implements OnInit {
   @Input()
   maximoRating: number;
   @Input()
   ratingSeleccionado: number;
+  ratingAnterior: number;
+  @Output()
+  rated: EventEmitter<number> = new EventEmitter<number>();
 
   maximoRatingArr: Array<any>;
+  votado: boolean;
 
   constructor() {
     this.maximoRating = 5;
+    this.ratingAnterior = 0;
     this.ratingSeleccionado = 0;
     this.maximoRatingArr = [];
+    this.votado = false;
   }
 
   ngOnInit(): void {
@@ -30,7 +35,17 @@ export class RatingComponent implements OnInit{
   }
 
   manejarMouseLeave(): void {
-    this.ratingSeleccionado = 0;
+    if(this.ratingAnterior !== 0) {
+      this.ratingSeleccionado = this.ratingAnterior;
+    }else {
+      this.ratingSeleccionado = 0;
+    }
   }
 
+  rate(index: number): void {
+    this.ratingSeleccionado = index + 1;
+    this.votado = true;
+    this.ratingAnterior = this.ratingSeleccionado;
+    this.rated.emit(this.ratingSeleccionado);
+  }
 }

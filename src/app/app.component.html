@@ -8,10 +8,10 @@
 <!-- Material -->
 <app-menu></app-menu>
 
-<app-rating [maximoRating]="6"></app-rating>
+<app-rating (rated)="manejarRated($event)" ></app-rating>
 
 <div class="contenedor">
-  <!-- Uso de componente  -->
+  <!-- Uso de componente -->
   <h2>En cines</h2>
   <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
