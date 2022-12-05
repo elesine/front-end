@@ -11,7 +11,6 @@ describe('LandingPageComponent', () => {
       declarations: [ LandingPageComponent ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

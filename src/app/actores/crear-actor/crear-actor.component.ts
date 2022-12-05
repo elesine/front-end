@@ -1,3 +1,4 @@
+import { actorCreacionDTO } from './../actor';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class CrearActorComponent {
 
+  guardarCambios(actor: actorCreacionDTO){
+    console.log('actor',actor);
+  }
 }
