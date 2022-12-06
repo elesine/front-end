@@ -1,4 +1,4 @@
-import { actorCreacionDTO } from './../actor';
+import { actorCreacionDTO, actorDTO } from './../actor';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditarActorComponent implements OnInit {
 
-  modelo: actorCreacionDTO = {nombre: 'felipe', fechaNacimiento: new Date()}
+  modelo: actorDTO = {nombre: 'felipe', fechaNacimiento: new Date(), foto: "https://static.wikia.nocookie.net/marvelfanon/images/4/49/Hulk_SMASH.png/revision/latest?cb=20170513133827&path-prefix=es"}
 
   constructor(private activatedRoute: ActivatedRoute ){}
 

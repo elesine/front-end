@@ -11,12 +11,12 @@ export class FormularioActoresComponent {
   form: FormGroup;
 
   @Output()
-  submit: EventEmitter<actorCreacionDTO>;
+  submitForm: EventEmitter<actorCreacionDTO>;
 
   @Input() modelo: actorCreacionDTO;
 
   constructor(private FormBuilder: FormBuilder) {
-    this.submit = new EventEmitter<actorCreacionDTO>;
+    this.submitForm = new EventEmitter<actorCreacionDTO>;
 
   }
 
@@ -25,7 +25,8 @@ export class FormularioActoresComponent {
       nombre: ['',{validators: [Validators.required],
       }],
       fechaNacimiento: '',
-      foto: ''
+      foto: '',
+      biografia: ''
     });
 
     if(this.modelo !== undefined) {
@@ -34,10 +35,14 @@ export class FormularioActoresComponent {
   }
 
   onSubmit() {
-    this.submit.emit(this.form.value);
+    this.submitForm.emit(this.form.value);
   }
 
   archivoSeleccionado(file) {
     this.form.get('foto').setValue(file);
+  }
+
+  cambioMarkdown(texto: String ){
+    this.form.get('biografia').setValue(texto);
   }
 }

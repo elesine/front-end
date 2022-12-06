@@ -4,3 +4,13 @@
   </button>
   <input type="file" hidden #fileInput (change)="change($event)" />
 </div>
+
+<div>
+  <div *ngIf="imagenBase64">
+    <img [src]="imagenBase64" />
+  </div>
+  <div *ngIf="urlImagenActual">
+    <img [src]="urlImagenActual">
+  </div>
+
+</div>
